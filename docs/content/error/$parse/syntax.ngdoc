@@ -7,3 +7,24 @@ Occurs when there is a syntax error in an expression.  These errors are thrown w
 The error message contains a more precise description of the error, including the location (column) in the expression where the error occurred.
 
 To resolve, learn more about {@link guide/expression AngularJS expressions}, identify the error and fix the expression's syntax.
+        
+        
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-animate.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-sanitize.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-route.min.js"></script>
+
+                <uib-tabset active="active" >             
+                    <uib-tab ng-repeat="tab in tabs" id="{{tab.id}}" index="$index+ 1">                                                   
+                        <uib-tab-heading>
+                            <i class="{{tab.class}}"></i>{{tab.title}} 
+                        </uib-tab-heading>                            
+<!--                        This line is not working-->
+                        <ng-include src="{{tab.temp}}"> </ng-include> 
+                    </uib-tab>
+                    <uib-tab active="inactive">
+                        <uib-tab-heading>Testing</uib-tab-heading>
+                        <!--                        This line is working-->
+                        <ng-include src="'../Party/PartyCreation.html'"> </ng-include>
+                    </uib-tab>
+                </uib-tabset> 
